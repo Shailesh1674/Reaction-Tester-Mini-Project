@@ -1,0 +1,23 @@
+*{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color:antiquewhite;
+        }
+        h1{
+            justify-content: center;
+            text-align: center;
+            font-size: 70px;
+            background-color: aliceblue;
+        }
+        p{
+            font-size: 30px;
+            text-align: center;
+        }
+        #square{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+        }

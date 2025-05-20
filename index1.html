@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Tester Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1> <u>Reaction Tester Project</u></h1>
+    <p> <u>!! Click square as soon as you can !!</u></p>
+    <div id="square"></div>
+
+    <script>
+        // timer start when webpage reload
+        var startTime = new Date().getTime();
+
+        //random color generation
+        function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+        }
+
+        getRandomColor();
+        //function creation for different width , height and position of square with click
+        function change() {
+
+            // declaring variables
+            var left;
+            var top;
+            var wh;
+
+            //variable values 
+            left = Math.random() * 300 ;
+            top = Math.random() * 200;
+            wh = (Math.random() * 400 )+ 100 ;
+
+            //variable for direct call my div square
+            var square;
+            square = document.getElementById("square");
+            
+            //after click what should happen ..
+            square.style.left = left + "px";
+            square.style.top = top + "px";
+            square.style.width = wh +"px";
+            square.style.height = wh + "px";
+            square.style.backgroundColor = getRandomColor(); // 👉 apply random color here
+
+            document.getElementById("square").style.display="block";
+
+            startTime = new Date().getTime();
+
+            // getRandomColor();
+        }
+
+        // onclick event
+        document.getElementById("square").onclick = function() {
+            var endTime = new Date().getTime();
+            var resultTime = (endTime - startTime) / 1000 ;
+            alert(" Your reaction time was : " + resultTime + " second");
+            document.getElementById("square").style.display="none";
+            change();
+            getRandomColor();
+        }
+    </script>
+</body>
+</html>
